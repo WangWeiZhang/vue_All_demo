@@ -1,0 +1,26 @@
+,
+		//vue的整个执行过程就是生命周期，什么时间段执行那个方法，我们了解后知道根据不同的需求写在不同的地方
+		beforeCreate:function(){
+			alert("组件实例化之前执行的函数");
+		} ,
+		created:function(){
+			alert("组件实例化完毕，但页面还未显示");//组件已经生成 dom还没生成 （vue组件 和 实例化完成）
+		},
+		beforeMount:function(){
+			alert("组件挂载前，页面仍未显示，但虚拟dom已经配置（渲染）");
+		},
+		mounted:function(){
+			alert("组件挂载后，此方法执行后，页面显示");  //交互 在这里进行
+		},
+		beforeUpdate:function(){
+			alert("组件更新（改变）前，页面仍未更新，但虚拟dom已经配置（渲染）");
+		},
+		updated:function(){
+			alert("组件更新（改变），此方法执行后，页面显示");
+		},
+		beforeDestory:function(){
+			alert("组件销毁前");
+		},
+		destoryed:function(){
+			alert("组件销毁");
+		}

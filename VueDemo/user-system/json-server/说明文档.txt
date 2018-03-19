@@ -1,0 +1,171 @@
+搭建本地的数据接口
+json-server github Api文档		
+总结：https://github.com/typicode/json-server  具体 获取 详细清单 打开连接
+一、描述
+	项目会 进行 增删改查 数据
+		1、可以存放在数据库里。 
+		2、通过本地的数据接口实现。
+
+二、接口实现方式：使用json-server在本地搭建数据接口
+
+	a、jsonplaceholder.typicode.com
+		1、只能够get获取到 jsonplaceholder 的 数据， 不能使用post改变数据状态
+	b、使用 json-server模块 在本地搭建。
+		访问 https://github.com/typicode/json-server
+			指示了如何去做，创建json案例 、 启动json 、 等
+三、使用方法：	
+	https://github.com/typicode/json-server
+	1、安装全局的 json-server（window）
+		npm install -g json-server
+	
+	2、进入配置目录（提前准备好的，我们准备的是 D:\vue-demo\user-system\json-server）
+		cd
+		
+	3、初始化 package.json 文件（因为要在当前文件下 下载模块使用， 所以 需要先初始化）
+		npm init 
+		
+	4、安装局部 json-server 与当前项目建立依赖关系
+		npm install json-server --save  (--save 是将下载的json-server引入package.json文件建立依赖)
+	
+	5、创建json文件
+		  {
+			"user":[
+				{
+					"name":"Henry",
+					"phone":"333-444-555",
+					"email":"henry@3232.com",
+					"id":1,
+					"age":30,
+					"companyId":1
+				},
+				{
+					"name":"Bucky",
+					"phone":"333-444-555",
+					"email":"henry@3232.com",
+					"id":2,
+					"age":33,
+					"companyId":2
+				},
+				{
+					"name":"Emily",
+					"phone":"333-444-555",
+					"email":"henry@3232.com",
+					"id":3,
+					"age":34,
+					"companyId":3
+				},
+				{
+					"name":"Elyse",
+					"phone":"333-444-555",
+					"email":"henry@3232.com",
+					"id":4,
+					"age":27,
+					"companyId":3
+				}
+			],
+			"companies":[
+				{
+					"id":1,
+					"name":"Apple",
+					"description":"Apple is good"
+				},
+				{
+					"id":2,
+					"name":"Microsoft",
+					"description":"Microsoft is good"
+				},
+				{
+					"id":3,
+					"name":"Google",
+					"description":"Google is good"
+				}
+			]
+		  }
+	5、查看json文件（默认命令）
+		json-server --watch db.json
+		
+		a、自定义 跑本地json的 命令（修改package.json）
+			修改->
+				"scripts": {
+					"test": "echo \"Error: no test specified\" && exit 1"
+				},
+			为->
+				"scripts": {
+					"json:server": "json-server --watch db.json"
+				 },
+		b、使用npm run json:server 执行
+			出现：
+			 
+			 \{^_^}/ hi!
+
+				 Loading db.json
+				 Done
+
+			 Resources
+				 http://localhost:3000/user
+				 http://localhost:3000/companies
+
+			 Home
+				http://localhost:3000
+
+			 Type s + enter at any time to create a snapshot of the database
+			 Watching...
+			 
+			 为成功
+			 
+		c、在浏览器中访问
+ http://localhost:3000
+ 
+ //获取所有用户信息
+ http://localhost:3000/user
+ 
+ //获取id为 1 的用户信息
+ http://localhost:3000/user/1 
+ 
+ //获取公司的所有信息
+ http://localhost:3000/companies
+ 
+ //获取单个公司的信息
+ http://localhost:3000/companies/2 
+ 
+ //获取所有公司id为3的用户信息
+ http://localhost:3000/companies/3/user
+ 
+ //根据公司名称获取公司信息
+ http://localhost:3000/companies?name=Apple
+ 
+ //根据多个名字获取公司信息
+ http://localhost:3000/companies?name=Apple&name=Microsoft
+ 
+ //获取一页中的前两条数据
+ http://localhost:3000/companies?_page=1&_limit=2
+ 
+ //升序获取 asc排序 desc降序获取
+ http://localhost:3000/companies?_sort=name&_order=asc  按照name的字母顺序升序排列
+ http://localhost:3000/companies?_sort=id&_order=asc  按照id的数值大小升序
+
+ http://localhost:3000/companies?_sort=id&_order=desc  按照id的数值大小降序
+
+ //获取年龄30 和 大于30的
+ http://localhost:3000/user?age_gte=30
+
+ //获取年龄20 - 30 之间的用户信息
+ http://localhost:3000/user?age_gte=20&age_lte=30			 
+		
+//搜索用户信息（）
+ http://localhost:3000/user?q=bucky  
+ q是搜索关键字的字母， 后面的bucky是搜索的关键字		
+		
+
+json-server github Api文档		
+总结：https://github.com/typicode/json-server  具体 获取 详细清单 打开连接
+		
+		
+		
+postman 中
+
+
+PATCH 更新 
+DELETE 删除
+		
+		
