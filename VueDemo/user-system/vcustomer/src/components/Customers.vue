@@ -8,7 +8,7 @@
 					<th>姓名</th>
 					<th>电话</th>
 					<th>邮箱</th>
-					
+					<th></th>
 				</tr>
 			</thead>
 			
@@ -17,7 +17,7 @@
 					<td>{{customer.name}}</td>
 					<td>{{customer.phone}}</td>
 					<td>{{customer.email}}</td>
-					
+					<th></th>
 				</tr>
 			</tbody>
 		</table>
